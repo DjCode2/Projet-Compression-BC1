@@ -51,20 +51,21 @@ def changed(matrice, nouvellematrice):
 
 #question 2 
     
-def slice4part(matrice):
-    Hauteur= np.shape(matrice)[1]
-    largeur= np.shape(matrice)[0]
-    print(largeur/2)
-    A1 = matrice[:largeur//2 , :Hauteur//2]
-    A2 = matrice[largeur//2: , :Hauteur//2]
-    A3 = matrice[:largeur//2 , Hauteur//2 :]
-    A4 = matrice[ largeur//2 : , Hauteur//2 :]
+def slice4pixel(matrice):
+    hauteur = np.shape(matrice)[0]
+    largeur = np.shape(matrice)[1]
     
-    save(A1, "A1.jpg")
-    save(A2, "A2.jpg")
-    save(A3, "A3.jpg")
-    save(A4, "A4.jpg")
-
+    # Calcule le nombre de segments en hauteur et en largeur
+    segments_hauteur = hauteur // 4
+    segments_largeur = largeur // 4
+    
+    # découpage en 4
+    for i in range(segments_hauteur):
+        for j in range(segments_largeur):
+            # Découpe le segment actuel de la matrice
+            segment = matrice[i*4:(i+1)*4, j*4:(j+1)*4]
+            
+            #save(segment, f"Segment_{i}_{j}.jpg") #N'ACTIVER QUE SI ON EST SUR DES MATRICES MINUSCULES
 
 
 HauteurBase= np.shape(load("proc.jpg"))[1]
@@ -73,7 +74,18 @@ largeurBase= np.shape(load("proc.jpg"))[0]
    
 padding(load("proc.jpg"))
 no_padding(load("procnoir.jpg"),largeurBase, HauteurBase)
-slice4part(load("procnoir.jpg"))
+slice4pixel(load("procnoir.jpg"))
 changed(load("proc.jpg"), load("sansNoir.jpg"))
    
 
+
+
+def save(segment, filename):
+    # Convertit le segment en image
+    image = Image.fromarray(segment)
+    # Sauvegarde l'image
+    image.save(filename)
+
+# Exemple d'utilisation avec une matrice de test
+matrice_test = np.random.randint(0, 255, size=(16, 16))  # Crée une matrice 16x16 avec des valeurs aléatoires entre 0 et 255
+slice4pixel(matrice_test)
