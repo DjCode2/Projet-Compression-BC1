@@ -15,6 +15,7 @@ def psnr(original, compressed):
     return psnr
 def save(matPix, filename):
     Image.fromarray(matPix).save(filename)
+    
 #question 1
 def padding(matrice):
     Hauteur = np.shape(matrice)[1]
@@ -31,6 +32,7 @@ def no_padding(matrice, largeur, hauteur):
     save(nouvellemat, "procsansnoir.png")
 def verif(image_originale, image_transformee):
     return np.array_equal(image_originale, image_transformee)
+    
 #question 2 
 def slice4pixel(matrice):
     hauteur = np.shape(matrice)[0]
