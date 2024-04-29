@@ -59,6 +59,20 @@ def slice4pixel(matrice):
 
             #save(segment, f"Segment_{i}_{j}.jpg") #N'ACTIVER QUE SI ON EST SUR DES MATRICES MINUSCULES
     return blocs
+    
+#question 3 
+# Fonction pour reconstruire l'image à partir de la liste de blocs
+
+    # Initialiser une matrice vide pour l'image complète
+
+    # Parcourir les blocs et les placer dans la matrice de l'image
+
+            # Coordonnées de départ pour placer le bloc
+
+            # Placer le bloc dans la matrice de l'image
+
+
+
 
 #espace TEST -------------------------------------------------------
 # test padding
