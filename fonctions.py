@@ -61,7 +61,11 @@ def slice4pixel(matrice):
     return blocs
     
 #question 3 
+
+def verif_slice(block):
 # Fonction pour reconstruire l'image à partir de la liste de blocs
+    image = np.zeros((len(blocks) * 4, len(blocks[0]) * 4), dtype=int)
+
 
     # Initialiser une matrice vide pour l'image complète
 
